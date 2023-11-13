@@ -1,11 +1,23 @@
 spring:
-  jpa:
-    database: POSTGRESQL
-    show-sql: true
-    hibernate:
-      ddl-auto: create
   datasource:
-    url: jdbc:postgresql://localhost:5432/sneaker_shop
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=sneaker_shop
     username: postgres
-    password: postgres
+    password: oleg2004
     driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      mode: never
+      continue-on-error: false
+  liquibase:
+    change-log: classpath:liquibase/db.changelog.yaml
+    enabled: true
+    default-schema: sneaker_shop
+  main:
+    allow-circular-references: true
+
+
+security:
+  jwt:
+    secret: amF0amhvaWFob2loanE5ZXdqMDlyZWlvZmppZmppc2RqZnBkamZwb3Nkam9zZGZramZvcGpzZGY=
+    access: 3600000
+    refresh: 2592000000
