@@ -14,6 +14,7 @@ public class UserMapper implements Mapper<User, UserDto> {
     @Override
     public UserDto toDto(User entity) {
         UserDto userDto = new UserDto();
+        userDto.setId(userDto.getId());
         userDto.setName(entity.getName());
         userDto.setUsername(entity.getUsername());
         userDto.setPassword(entity.getPassword());

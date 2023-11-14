@@ -20,4 +20,9 @@ public class Item {
     @CollectionTable(name = "items_availability")
     @JoinColumn(name = "availability_id")
     private List<Availability> availability;
+
+    @Column(name = "image")
+    @CollectionTable(name = "items_images")
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> images;
 }

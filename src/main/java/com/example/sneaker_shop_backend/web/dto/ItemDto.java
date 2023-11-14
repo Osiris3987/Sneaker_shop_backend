@@ -3,6 +3,7 @@ package com.example.sneaker_shop_backend.web.dto;
 import com.example.sneaker_shop_backend.web.dto.validation.OnCreate;
 import com.example.sneaker_shop_backend.web.dto.validation.OnDelete;
 import com.example.sneaker_shop_backend.web.dto.validation.OnUpdate;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -23,4 +24,7 @@ public class ItemDto {
 
     @NotNull(message = "You must indicate size and amount", groups = OnCreate.class)
     private List<AvailabilityDto> sizeAmount;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private List<String> images;
 }

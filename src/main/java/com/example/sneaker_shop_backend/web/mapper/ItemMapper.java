@@ -6,6 +6,7 @@ import com.example.sneaker_shop_backend.web.mapper.abstract_mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+
 import java.util.List;
 import java.util.function.BiConsumer;
 
@@ -22,6 +23,7 @@ public class ItemMapper implements Mapper<Item, ItemDto> {
         itemDto.setDescription(entity.getDescription());
         itemDto.setInStock(entity.getInStock());
         itemDto.setSizeAmount(availabilityMapper.toDtos(entity.getAvailability()));
+        itemDto.setImages(entity.getImages());
         return itemDto;
     }
 
