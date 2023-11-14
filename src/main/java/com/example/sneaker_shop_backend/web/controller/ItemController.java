@@ -1,11 +1,12 @@
 package com.example.sneaker_shop_backend.web.controller;
 
-import com.example.sneaker_shop_backend.domain.item.ItemImage;
+import com.example.sneaker_shop_backend.domain.entity.item.ItemImage;
 import com.example.sneaker_shop_backend.service.ItemService;
 import com.example.sneaker_shop_backend.web.dto.ItemDto;
 import com.example.sneaker_shop_backend.web.dto.ItemImageDto;
 import com.example.sneaker_shop_backend.web.dto.validation.OnCreate;
 import com.example.sneaker_shop_backend.web.mapper.ItemImageMapper;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("api/v1/items")
 @Validated
+@Tag(name = "Item Controller", description = "Item API")
 public class ItemController {
     private final ItemService itemService;
     private final ItemImageMapper itemImageMapper;

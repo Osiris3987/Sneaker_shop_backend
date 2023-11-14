@@ -1,10 +1,10 @@
 package com.example.sneaker_shop_backend.service.Impl;
 
-import com.example.sneaker_shop_backend.domain.cart.Cart;
-import com.example.sneaker_shop_backend.domain.cart.CartItem;
+import com.example.sneaker_shop_backend.domain.entity.cart.Cart;
+import com.example.sneaker_shop_backend.domain.entity.cart.CartItem;
 import com.example.sneaker_shop_backend.domain.exception.ResourceNotFoundException;
-import com.example.sneaker_shop_backend.domain.user.Role;
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.Role;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.repository.UserRepository;
 import com.example.sneaker_shop_backend.service.CartService;
 import com.example.sneaker_shop_backend.service.UserService;

@@ -1,4 +1,4 @@
-package com.example.sneaker_shop_backend.domain.item;
+package com.example.sneaker_shop_backend.domain.entity.item;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

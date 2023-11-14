@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.service;
 
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.web.dto.CartItemDto;
 import com.example.sneaker_shop_backend.web.dto.UserDto;
 

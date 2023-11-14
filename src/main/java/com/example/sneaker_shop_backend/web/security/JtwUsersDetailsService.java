@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.web.security;
 
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

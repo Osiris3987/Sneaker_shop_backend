@@ -1,6 +1,6 @@
-package com.example.sneaker_shop_backend.domain.user;
+package com.example.sneaker_shop_backend.domain.entity.user;
 
-import com.example.sneaker_shop_backend.domain.cart.Cart;
+import com.example.sneaker_shop_backend.domain.entity.cart.Cart;
 import jakarta.persistence.*;
 import lombok.Data;
 

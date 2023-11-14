@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.web.security.expression;
 
-import com.example.sneaker_shop_backend.domain.user.Role;
+import com.example.sneaker_shop_backend.domain.entity.user.Role;
 import com.example.sneaker_shop_backend.service.UserService;
 import com.example.sneaker_shop_backend.web.security.JwtEntity;
 import jakarta.servlet.http.HttpServletRequest;

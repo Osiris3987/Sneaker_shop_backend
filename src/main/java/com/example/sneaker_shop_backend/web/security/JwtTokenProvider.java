@@ -1,8 +1,8 @@
 package com.example.sneaker_shop_backend.web.security;
 
 import com.example.sneaker_shop_backend.domain.exception.AccessDeniedException;
-import com.example.sneaker_shop_backend.domain.user.Role;
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.Role;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.service.UserService;
 import com.example.sneaker_shop_backend.service.props.JwtProperties;
 import com.example.sneaker_shop_backend.web.dto.auth.JwtResponse;

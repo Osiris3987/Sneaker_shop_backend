@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.service.Impl;
 
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.service.AuthService;
 import com.example.sneaker_shop_backend.service.UserService;
 import com.example.sneaker_shop_backend.web.dto.auth.JwtRequest;

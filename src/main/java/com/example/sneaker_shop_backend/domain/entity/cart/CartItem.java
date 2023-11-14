@@ -1,4 +1,4 @@
-package com.example.sneaker_shop_backend.domain.cart;
+package com.example.sneaker_shop_backend.domain.entity.cart;
 
 import jakarta.persistence.*;
 import lombok.Data;

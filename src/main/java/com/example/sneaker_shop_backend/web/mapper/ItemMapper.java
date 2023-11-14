@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.web.mapper;
 
-import com.example.sneaker_shop_backend.domain.item.Item;
+import com.example.sneaker_shop_backend.domain.entity.item.Item;
 import com.example.sneaker_shop_backend.web.dto.ItemDto;
 import com.example.sneaker_shop_backend.web.mapper.abstract_mapper.Mapper;
 import lombok.RequiredArgsConstructor;

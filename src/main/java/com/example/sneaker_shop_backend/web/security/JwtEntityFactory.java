@@ -1,8 +1,8 @@
 package com.example.sneaker_shop_backend.web.security;
 
 
-import com.example.sneaker_shop_backend.domain.user.Role;
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.Role;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

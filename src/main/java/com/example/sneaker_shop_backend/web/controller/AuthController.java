@@ -6,6 +6,7 @@ import com.example.sneaker_shop_backend.web.dto.UserDto;
 import com.example.sneaker_shop_backend.web.dto.auth.JwtRequest;
 import com.example.sneaker_shop_backend.web.dto.auth.JwtResponse;
 import com.example.sneaker_shop_backend.web.dto.validation.OnCreate;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;

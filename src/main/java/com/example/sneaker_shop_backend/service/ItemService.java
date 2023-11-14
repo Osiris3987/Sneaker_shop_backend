@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.service;
 
-import com.example.sneaker_shop_backend.domain.item.ItemImage;
+import com.example.sneaker_shop_backend.domain.entity.item.ItemImage;
 import com.example.sneaker_shop_backend.web.dto.ItemDto;
 
 import java.util.List;

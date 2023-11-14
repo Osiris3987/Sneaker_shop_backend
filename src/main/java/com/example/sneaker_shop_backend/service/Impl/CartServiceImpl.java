@@ -1,7 +1,8 @@
 package com.example.sneaker_shop_backend.service.Impl;
 
-import com.example.sneaker_shop_backend.domain.cart.Cart;
-import com.example.sneaker_shop_backend.domain.cart.CartItem;
+import com.example.sneaker_shop_backend.domain.entity.cart.Cart;
+import com.example.sneaker_shop_backend.domain.entity.cart.CartItem;
+import com.example.sneaker_shop_backend.domain.exception.AccessDeniedException;
 import com.example.sneaker_shop_backend.domain.exception.ResourceNotFoundException;
 import com.example.sneaker_shop_backend.repository.CartItemRepository;
 import com.example.sneaker_shop_backend.repository.CartRepository;
@@ -30,9 +31,8 @@ public class CartServiceImpl implements CartService {
     @Override
     @Transactional
     public void addItemToCart(CartItemDto cartItemDto) {
-        CartItem cartItem = cartItemMapper.toEntity(cartItemDto, (cartItemEntity, dto) -> {
-            cartItemEntity.setCart(cartRepository.findById(dto.getCartId()).orElseThrow());
-        });
+        CartItem cartItem = cartItemMapper.toEntity(cartItemDto, (cartItemEntity, dto)
+                -> cartItemEntity.setCart(getById(dto.getCartId())));
         cartItemRepository.save(cartItem);
     }
 
@@ -53,5 +53,24 @@ public class CartServiceImpl implements CartService {
                 .toList();
         cart.getCartItems().removeAll(forRemove);
         cartRepository.save(cart);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public CartItemDto getCartItem(Long cartId, Long itemId) {
+        CartItem cartItem = cartItemRepository.findById(itemId).orElseThrow(()
+                        -> new ResourceNotFoundException("Cart item not found")
+                );
+        if (!cartItem.getCart().getId().equals(cartId)){
+            throw new AccessDeniedException();
+        }
+        return cartItemMapper.toDto(cartItem);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<CartItemDto> getCartItems(Long cartId) {
+        Cart cart = getById(cartId);
+        return cartItemMapper.toDtos(cart.getCartItems());
     }
 }

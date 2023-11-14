@@ -1,7 +1,7 @@
 package com.example.sneaker_shop_backend.service.Impl;
 
 import com.example.sneaker_shop_backend.domain.exception.ImageUploadException;
-import com.example.sneaker_shop_backend.domain.item.ItemImage;
+import com.example.sneaker_shop_backend.domain.entity.item.ItemImage;
 import com.example.sneaker_shop_backend.service.ImageService;
 import com.example.sneaker_shop_backend.service.props.MinioProperties;
 import io.minio.*;

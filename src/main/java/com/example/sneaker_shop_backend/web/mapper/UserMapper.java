@@ -1,6 +1,6 @@
 package com.example.sneaker_shop_backend.web.mapper;
 
-import com.example.sneaker_shop_backend.domain.user.User;
+import com.example.sneaker_shop_backend.domain.entity.user.User;
 import com.example.sneaker_shop_backend.web.dto.UserDto;
 import com.example.sneaker_shop_backend.web.mapper.abstract_mapper.Mapper;
 import org.springframework.stereotype.Component;
