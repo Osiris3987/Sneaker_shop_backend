@@ -26,7 +26,7 @@ public class CartController {
         cartService.addItemToCart(cartItemDto);
     }
 
-    @DeleteMapping("/items")
+    @DeleteMapping(value = "/items")
     @PreAuthorize("@customSecurityExpression.canAccessCart(#cartItemDto.getCartId())")
     public void deleteCartItem(@Validated(OnDelete.class) @RequestBody CartItemDto cartItemDto){
         cartService.deleteItemFromCart(cartItemDto);

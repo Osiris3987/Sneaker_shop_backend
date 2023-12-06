@@ -6,12 +6,72 @@ services:
     minio:
       image: minio/minio:latest
       container_name: minio
+      networks:
+        - app-network
       environment:
         - MINIO_ROOT_USER=minioadmin
         - MINIO_ROOT_PASSWORD=minioadmin
-      command: server ~/minio --console-address :9090
+      command: server ~/minio --console-address :9091
       ports:
-        - '9090:9090'
+        - '9091:9091'
         - '9000:9000'
       volumes:
         - minio-data:/minio
+
+    prometheus:
+      image: prom/prometheus
+      ports:
+        - 9090:9090
+      volumes:
+        - ./prometheus:/etc/prometheus
+      command:
+        - '--config.file=/etc/prometheus/prometheus.yml'
+
+    grafana:
+      image: grafana/grafana
+      ports:
+        - 3000:3000
+      environment:
+        - GF_SECURITY_ADMIN_PASSWORD=admin
+      volumes:
+        - ./grafana:/var/lib/grafana
+
+    postgresql:
+      image: postgres:15.1-alpine
+      container_name: postgresql
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: oleg2004
+      ports:
+        - '5433:5432'
+      volumes:
+        - ./src/main/resources/db-init:/docker-entrypoint-initdb.d
+      networks:
+        - app-network
+
+    app:
+      container_name: Sneaker_shop_backend
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+        - "DB_HOST=postgresql"
+        - "POSTGRES_USER=postgres"
+        - "POSTGRES_PASSWORD=oleg2004"
+        - "SERVER_PORT=8080"
+      ports:
+        - "8080:8080"
+      depends_on:
+        - postgresql
+        - grafana
+        - minio
+        - prometheus
+      restart: always
+      networks:
+        - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+

@@ -6,7 +6,6 @@ import com.example.sneaker_shop_backend.web.mapper.abstract_mapper.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-
 import java.util.List;
 import java.util.function.BiConsumer;
 

@@ -1,6 +1,7 @@
 package com.example.sneaker_shop_backend.repository;
 
 import com.example.sneaker_shop_backend.domain.entity.user.User;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,4 +21,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             """, nativeQuery = true)
     boolean isCartOwner(@Param("userId") Long userId,
                         @Param("cartId") Long cartId);
+    @Timed("saveUserInDb")
+    User save(User user);
 }

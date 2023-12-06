@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=sneaker_shop
+    url: jdbc:postgresql://postgresql:5432/postgres?currentSchema=sneaker_shop
     username: postgres
     password: oleg2004
     driverClassName: org.postgresql.Driver
@@ -26,6 +26,20 @@ springdoc:
 
 minio:
   bucket: images
-  url: http://localhost:9000
+  url: http://host.docker.internal:9000
   accessKey: minioadmin
   secretKey: minioadmin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,beans,cache
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
